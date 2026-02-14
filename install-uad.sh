@@ -95,20 +95,14 @@ echo "Launching UAD GUI..."
 echo "========================================="
 echo ""
 
-# Try normal launch first
-if ./uad_gui-linux 2>/dev/null; then
-    exit 0
+# Check if running on Wayland
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    echo "Wayland detected - using X11 backend for compatibility..."
+    WINIT_UNIX_BACKEND=x11 ./uad_gui-linux
+else
+    echo "X11 detected - launching normally..."
+    ./uad_gui-linux
 fi
-
-# If normal launch fails, try X11 backend (Wayland fix)
-echo "Detected display issues, trying X11 backend..."
-if WINIT_UNIX_BACKEND=x11 ./uad_gui-linux 2>/dev/null; then
-    exit 0
-fi
-
-# If X11 backend fails, try clearing Wayland environment
-echo "Trying alternate Wayland fix..."
-env -u WAYLAND_DISPLAY ./uad_gui-linux
 
 echo ""
 echo "========================================="
