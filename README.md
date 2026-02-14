@@ -71,20 +71,43 @@ chmod +x uad_gui-linux
 
 ## Troubleshooting Wayland Issues
 
+### KDE Plasma Wayland Users
+
+If the automated script fails to launch UAD on KDE Plasma Wayland, use the dedicated launcher:
+
+```bash
+wget https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/launch-uad.sh && chmod +x launch-uad.sh && ./launch-uad.sh
+```
+
+Or manually launch with:
+
+```bash
+cd ~/Downloads
+WINIT_UNIX_BACKEND=x11 ./uad_gui-linux
+```
+
+### General Wayland Issues
+
 If you encounter a **wl_surface crash** or the GUI fails to launch on Wayland, use one of these solutions:
 
-### Solution 1: Force X11 Backend
+**Solution 1: Force X11 Backend (Recommended)**
 
 ```bash
 WINIT_UNIX_BACKEND=x11 ./uad_gui-linux
 ```
 
-### Solution 2: Clear Wayland Environment
+**Solution 2: Clear Wayland Environment**
 
 If the command above still shows warnings or fails to render, try clearing the Wayland environment variables:
 
 ```bash
 env -u WAYLAND_DISPLAY ./uad_gui-linux
+```
+
+**Solution 3: Force XWayland**
+
+```bash
+QT_QPA_PLATFORM=xcb ./uad_gui-linux
 ```
 
 ---
@@ -94,7 +117,7 @@ env -u WAYLAND_DISPLAY ./uad_gui-linux
 For a fully automated installation, download and run the install script:
 
 ```bash
-wget https://raw.githubusercontent.com/ChroninOS/Droid-Slimmer/main/install-uad.sh && chmod +x install-uad.sh && ./install-uad.sh
+wget https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/install-uad.sh && chmod +x install-uad.sh && ./install-uad.sh
 ```
 
 **What this script does:**
