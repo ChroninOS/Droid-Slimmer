@@ -8,11 +8,20 @@ A comprehensive guide and utility script to install ADB/Fastboot and run the UAD
 
 Open your terminal and run the command corresponding to your Linux distribution:
 
-| Distribution | Command |
-|-------------|---------|
-| **Debian/Ubuntu** | `sudo apt install adb fastboot` |
-| **Arch Linux** | `sudo pacman -S android-tools` |
-| **Fedora** | `sudo dnf install android-tools` |
+**Debian/Ubuntu:**
+```bash
+sudo apt install adb fastboot
+```
+
+**Arch Linux:**
+```bash
+sudo pacman -S android-tools
+```
+
+**Fedora:**
+```bash
+sudo dnf install android-tools
+```
 
 ---
 
@@ -82,12 +91,19 @@ env -u WAYLAND_DISPLAY ./uad_gui-linux
 
 ## One-Command Script Installation
 
-For a fully automated installation, you can use this script:
+For a fully automated installation, download and run the install script:
 
 ```bash
-# Coming soon - automated installation script
-# This will handle dependencies, download, extraction, and launch
+wget https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/install-uad.sh && chmod +x install-uad.sh && ./install-uad.sh
 ```
+
+**What this script does:**
+- Automatically detects your Linux distribution
+- Installs ADB/Fastboot dependencies
+- Downloads the UAD GUI binary
+- Extracts and sets permissions
+- Checks for connected Android devices
+- Launches UAD with Wayland compatibility fixes if needed
 
 ---
 
