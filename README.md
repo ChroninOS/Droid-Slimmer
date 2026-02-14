@@ -94,7 +94,7 @@ env -u WAYLAND_DISPLAY ./uad_gui-linux
 For a fully automated installation, download and run the install script:
 
 ```bash
-wget https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/install-uad.sh && chmod +x install-uad.sh && ./install-uad.sh
+wget https://raw.githubusercontent.com/ChroninOS/Droid-Slimmer/main/install-uad.sh && chmod +x install-uad.sh && ./install-uad.sh
 ```
 
 **What this script does:**
