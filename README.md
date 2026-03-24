@@ -96,6 +96,12 @@ If you encounter a **wl_surface crash** or the GUI fails to launch on Wayland, u
 WINIT_UNIX_BACKEND=x11 ./uad_gui-linux
 ```
 
+**Or,**
+
+```bash
+env WINIT_UNIX_BACKEND=x11 ./uad_gui-linux
+```
+
 **Solution 2: Clear Wayland Environment**
 
 If the command above still shows warnings or fails to render, try clearing the Wayland environment variables:
@@ -107,7 +113,7 @@ env -u WAYLAND_DISPLAY ./uad_gui-linux
 **Solution 3: Force XWayland**
 
 ```bash
-QT_QPA_PLATFORM=xcb ./uad_gui-linux
+env WAYLAND_DISPLAY= ./uad_gui-linux
 ```
 
 ---
